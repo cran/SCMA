@@ -1,0 +1,10 @@
+0e14eef4a633f674df7ecd20dcb8dd70 *DESCRIPTION
+c7c8ed37faff92980b642f2eae875629 *NAMESPACE
+e755840a8dfc3fed0882756d2342cf27 *R/ES.R
+e9b5cf944e45d5ce7e1ed4520a81bf7e *R/combine.R
+a97db0cfcc357f7f29d5c784df8c4fd4 *data/AB.txt.gz
+87a5901308949779b23ce0408cf906b5 *data/P.txt.gz
+bfd8822a1c04eb7c834208fe1f4a37cb *man/AB.Rd
+631dbc608c58c1b3401b072a8049628d *man/ES.Rd
+9e74093ecc07d8bebb4ad7a05f821d17 *man/P.Rd
+d31a4b0accc07687afd3a2719093c316 *man/combine.Rd
