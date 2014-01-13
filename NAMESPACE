@@ -1,1 +1,1 @@
-export(ES, combine)
+export(combine,ES)
