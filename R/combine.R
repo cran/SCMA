@@ -1,4 +1,5 @@
-combine<-function(method, pvalues=read.table(file.choose(new=FALSE))){
+combine <-
+function(method, pvalues=read.table(file.choose(new=FALSE))){
 
   n<-nrow(pvalues)
   
@@ -22,4 +23,4 @@ combine<-function(method, pvalues=read.table(file.choose(new=FALSE))){
   
   return(lambda)
 
-} 
+}

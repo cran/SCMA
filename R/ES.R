@@ -1,7 +1,8 @@
-ES<-function(design,ES,data=read.table(file.choose(new=FALSE))){
+ES <-
+function(design,ES,data=read.table(file.choose(new=FALSE))){
 
-  if(design=="CRD"|design=="ATD"|design=="RBD"|design=="AB"|design=="ABA"){
-    if(design=="CRD"|design=="ATD"|design=="RBD"|design=="AB"){
+  if(design=="CRD"|design=="ATD"|design=="RBD"|design=="AB"|design=="ABA"|design=="Custom"){
+    if(design=="CRD"|design=="ATD"|design=="RBD"|design=="AB"|design=="Custom"){
       A<-data[,2][data[,1]=="A"]
       B<-data[,2][data[,1]=="B"]
     }    
