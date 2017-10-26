@@ -10,7 +10,7 @@ ES(design, ES, data = read.table(file.choose(new = FALSE)))
 Type of single-case design: "AB", "ABA", "ABAB", "CRD"(completely randomized design), "RBD" (randomized block design), "ATD" (alternating treatments design), "MBD" (multiple-baseline AB design) or "Custom" (user specified design).
 }
   \item{ES}{
-the type of effect size that has to be calculated: "SMD" (standardized mean difference), "SMDpool" (pooled standardized mean difference), "PND+" / "PND-" (percentage of nonoverlapping data, depending on the expected direction of the treatment effect), or "PEM+" / "PEM-" (percentage of data points exceeding the median, depending on the expected direction of the treatment effect)
+Type of effect size that has to be calculated: "SMD" (standardized mean difference), "SMDpool" (pooled standardized mean difference), "PND+" / "PND-" (percentage of nonoverlapping data, depending on the expected direction of the treatment effect), "PEM+" / "PEM-" (percentage of data points exceeding the median, depending on the expected direction of the treatment effect), or "NAP+" / "NAP-" (nonoverlap of all pairs, depending on the expected direction of the treatment effect).
 }
   \item{data}{
 File in which the data can be found. Default: a window pops up in which the appropriate file can be selected.

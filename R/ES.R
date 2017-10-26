@@ -1,5 +1,24 @@
 ES <-
 function(design,ES,data=read.table(file.choose(new=FALSE))){
+  
+  NAP_calc<-function(A,B)
+  {
+    no_overlap=0
+    comparisons=length(A)*length(B)
+    
+    for (j in 1: length(A)){
+      for (k in 1:length(B)){
+        if(A[j]<B[k]){
+          no_overlap=no_overlap+1
+        }
+        if (A[j]==B[k]){
+          no_overlap=no_overlap+0.5
+        }
+      }
+    }
+    
+    return(no_overlap/comparisons)
+  }
 
   if(design=="CRD"|design=="ATD"|design=="RBD"|design=="AB"|design=="ABA"|design=="Custom"){
     if(design=="CRD"|design=="ATD"|design=="RBD"|design=="AB"|design=="Custom"){
@@ -27,6 +46,12 @@ function(design,ES,data=read.table(file.choose(new=FALSE))){
     }
     if(ES=="PEM-"){
       es<-sum(B<median(A))/length(B)*100
+    }
+    if(ES=="NAP+"){
+      es<-NAP_calc(A,B)
+    }
+    if(ES=="NAP-"){
+      es<-1-NAP_calc(A,B)
     }
   }
   
@@ -60,15 +85,24 @@ function(design,ES,data=read.table(file.choose(new=FALSE))){
       es1<-sum(B1<median(A1))/length(B1)*100
       es2<-sum(B2<median(A2))/length(B2)*100
     }
+    if(ES=="NAP+"){
+      es1<-NAP_calc(A1,B1)
+      es2<-NAP_calc(A2,B2)
+    }
+    if(ES=="NAP-"){
+      es1<-1-NAP_calc(A1,B1)
+      es2<-1-NAP_calc(A2,B2)
+    }
     es<-mean(c(es1,es2))
   }
   
   if(design=="MBD"){
     N<-ncol(data)/2
     effectsizes<-numeric(N)
+    
     for(it in 1:N){
-        A<-data[,it*2][data[,(it*2)-1]=="A"]	
-        B<-data[,it*2][data[,(it*2)-1]=="B"]
+      A<-data[,it*2][data[,(it*2)-1]=="A"]	
+      B<-data[,it*2][data[,(it*2)-1]=="B"]
       
       if(ES=="SMD"){
         effectsizes[it]<-(mean(B)-mean(A))/sd(A) 
@@ -88,10 +122,15 @@ function(design,ES,data=read.table(file.choose(new=FALSE))){
       if(ES=="PEM-"){
         effectsizes[it]<-sum(B<median(A))/length(B)*100
       }
+      if(ES=="NAP+"){
+        effectsizes[it]<-NAP_calc(A,B)
+      }
+      if(ES=="NAP-"){
+        effectsizes[it]<-1-NAP_calc(A,B)
+      }
     } 
     es<-mean(effectsizes)
   }
   
   return(es)
-
 }
