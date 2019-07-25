@@ -18,7 +18,10 @@ File in which the data can be found. Default: a window pops up in which the appr
 }
 \details{
 When using the default 'data' argument, a window will pop up to ask in what file the data can be found. This text file containing the data should consist of two columns for single-case phase and alternation designs: the first with the condition labels and the second with the obtained scores.
-For multiple-baseline designs it should consist of these two columns for EACH unit. This way, each row represents one measurement occasion. It is important not to label the rows or columns.
+
+For multiple-baseline designs, it should consist of these two columns for EACH unit. This way, each row represents one measurement occasion. It is important not to label the rows or columns.
+
+Missing data should be indicated as \code{NA}. For calculations, missing data are omitted.
 }
 \references{
 Bulte, I., & Onghena, P. (2008). An R package for single-case randomization tests. Behavior Research Methods, 40, 467-478.
